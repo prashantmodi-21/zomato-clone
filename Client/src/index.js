@@ -1,0 +1,8 @@
+export {default as RestaurantsList} from "./pages/RestaurantsList"
+export {default as RestaurantMenu} from "./pages/RestaurantMenu"
+export {default as Login} from "./pages/Login"
+export {default as Register} from "./pages/Register"
+export {default as Cart} from "./pages/Cart"
+export {default as Error} from "./pages/Error"
+export {default as Home} from "./pages/Home"
+export {default as Order} from "./pages/Order"
