@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { logoutSuccess } from '../redux/userRedux'
 import {getAuth, signOut} from "firebase/auth"
+import { app } from '../firebaseConfig'
 
 const Sidebar = () => {
   const dispatch = useDispatch()
