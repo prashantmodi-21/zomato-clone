@@ -1,0 +1,3 @@
+[submodule "Client/admin"]
+    path = Client/admin
+    url = https://github.com/prashantmodi-21/zomato-clone.git
