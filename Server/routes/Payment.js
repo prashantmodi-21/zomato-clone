@@ -1,9 +1,9 @@
 const express = require('express')
 const Router = express.Router()
-const stripe = require('stripe')('sk_test_51NwMGqSJqDLz6xRIcPpU0uhaySvHTzCQbH3fqI6QPsqQekSxHgdLNEj8QuwZJuSrmD8mMoOp8qq6iAAd9OA8lOa400sQ1udyXo');
+const stripe = require('stripe')(process.env.STRPE_TEST_KEY);
 const Menu = require('../models/Menu');
 const Order = require('../models/Order');
-const endpointSecret = "whsec_14b6f62862a83542c59c3d8b938f58c31c4137995807461952ebb527f13b664e";
+const endpointSecret = process.env.SECRET_KEY;
 
 
 Router.post("/checkout", async(req, res)=>{
