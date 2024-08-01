@@ -1,6 +1,6 @@
 const express = require('express')
 const Router = express.Router()
-const stripe = require('stripe')(process.env.STRPE_TEST_KEY);
+const stripe = require('stripe')(process.env.STRIPE_TEST_KEY);
 const Menu = require('../models/Menu');
 const Order = require('../models/Order');
 const endpointSecret = process.env.SECRET_KEY;
@@ -41,7 +41,6 @@ Router.post("/checkout", async(req, res)=>{
 })
 
 const fulfillOrder = async(session) => {
-  console.log(session)
   const parsedItems = JSON.parse(session.metadata.cartItems)
   const menuItems = await Menu.find()
   const items = menuItems.filter(item=> parsedItems.find(i=> item._id.toString().includes(i.dishId)))
