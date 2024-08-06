@@ -1,8 +1,15 @@
-# React + Vite
+# Zomato-Clone - Admin
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### [Live Site](https://zomato-clone-admin.onrender.com)
 
-Currently, two official plugins are available:
+![Zomato-Clone- Login](https://i.postimg.cc/sXD1xcQH/admin-login.png) 
+![Zomato-Clone- Dashboard](https://i.postimg.cc/V61ZCSmV/admin-dashboard.png)
+![Zomato-Clone- Restaurants](https://i.postimg.cc/CxS473WR/admin-restaurants.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Introduction
+This is a Admin of Zomato with Functional Features of Restaurants, Users Management and Revenue Analysis. It is Developed using React.js, Stripe, Material-Ui and Tailwind-CSS
+
+Local Setup:
+
+- Run ```npm i``` for packages installation and ```npm run dev``` to run application locally
+- Run ```npm i``` for packages installation and ```node index.js || nodemon index.js``` to run local server
