@@ -1,15 +1,10 @@
 import React from 'react'
-const button = document.getElementById('button')
-const mobile = document.getElementById('mobile')
-import {useSelector} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import { userAutoLogout } from '../redux/userRedux'
 import { useEffect } from 'react'
 const Navbar = () => {
+  const dispatch = useDispatch()
   const {loginTime} = useSelector(state=>state.user)
-  button && button.addEventListener("click", ()=>{
-    console.log("mobile")
-    mobile.classList.toggle("visibility")
-  })
   useEffect(()=>{
     const intFunction = setInterval(() => {
       if (loginTime && Date.now() - loginTime >  24 * 60 * 60 * 1000) {

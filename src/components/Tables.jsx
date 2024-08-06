@@ -65,7 +65,7 @@ const Tables = () => {
           {prevRevenue.map((item, i)=>(
           <tr className='border-b text-sm' key={i}>
               <td className='px-4 py-2'>{item.monthYear}</td>
-              <td className='px-4 py-2'>{item.total === 0 || prevRevenue[i + 1]?.total === 0 ? prevRevenue[i + 1] ? (item.total - prevRevenue[i + 1]?.total)+"%" : "0%" : (((item.total - prevRevenue[i + 1]?.total)/prevRevenue[i -1]?.total)*100)+"%"}</td>
+              <td className='px-4 py-2'>{item.total === 0 || prevRevenue[i + 1]?.total === 0 ? prevRevenue[i + 1] ? (item.total - prevRevenue[i + 1]?.total)+"%" : "0%" : Math.round((((item.total - prevRevenue[i + 1]?.total)/prevRevenue[i + 1]?.total)*100))+"%"}</td>
               <td className='px-4 py-2'>{item.total}</td>
           </tr>
           ))}

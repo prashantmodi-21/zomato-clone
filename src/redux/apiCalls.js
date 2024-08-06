@@ -75,8 +75,8 @@ export const deleteUsers = async(dispatch, user)=>{
         const res = await userMethod.delete(`/user/${user}`)
         dispatch(deleteUserSuccess(user))
     } catch (error) {
-        
         dispatch(userAutoLogout())
+        dispatch(deleteRestaurantsFailed())
     }
 }
 
@@ -85,8 +85,8 @@ export const addUsers = async(dispatch, user)=>{
     try {
         const res = await userMethod.post("/user", user)
         dispatch(addUserSuccess(res.data))
-    } catch (error) {        
-        dispatch(userAutoLogout())
+    } catch (error) {
+        dispatch(userAutoLogout())  
         dispatch(addUserFailed())
     }
 }
