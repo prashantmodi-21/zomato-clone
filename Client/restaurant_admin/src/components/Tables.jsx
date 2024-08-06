@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { userMethod } from '../../requestMethod'
 import { useDispatch, useSelector } from 'react-redux'
-import { userAutoLogout } from '../../../admin/src/redux/userRedux'
+import { userAutoLogout } from '../redux/userRedux'
 
 const Tables = () => {
   const dispatch = useDispatch()

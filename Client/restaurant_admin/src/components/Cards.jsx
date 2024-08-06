@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { userMethod } from '../../requestMethod'
 import { useDispatch, useSelector } from 'react-redux'
-import { userAutoLogout } from '../../../admin/src/redux/userRedux'
+import { userAutoLogout } from '../redux/userRedux'
 
 const Cards = () => {
   const dispatch = useDispatch()
