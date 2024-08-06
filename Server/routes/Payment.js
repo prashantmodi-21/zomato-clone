@@ -34,8 +34,8 @@ Router.post("/checkout", async(req, res)=>{
         shipping_address_collection: {
             allowed_countries: ['IN'],
           },
-        success_url: `${process.env.YOUR_DOMAIN}/order/success`,
-        cancel_url: `${process.env.YOUR_DOMAIN}/order/canceled`,
+        success_url: `${process.env.YOUR_DOMAIN}/#/order/success`,
+        cancel_url: `${process.env.YOUR_DOMAIN}/#/order/canceled`,
       });
       res.json(session.url);
 })
