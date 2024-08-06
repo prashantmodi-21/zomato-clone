@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { userMethod } from '../../requestMethod'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { userAutoLogout } from '../../../admin/src/redux/userRedux'
 
 const Cards = () => {
+  const dispatch = useDispatch()
   const {user} = useSelector(state=>state.admin)
   const [noOfDishListed, setNoOfDishListed] = useState(0)
   const [noOfOfOrders, setNoOfOfOrders] = useState(0)
@@ -19,6 +21,7 @@ const Cards = () => {
       const res = await userMethod.get(`/menu/${user.restaurantId}`)
       setNoOfDishListed(res.data.length)
     } catch (error) {
+      dispatch(userAutoLogout())
       console.log(error)
     }
   }
@@ -30,6 +33,7 @@ const Cards = () => {
       const res = await userMethod.get(`/order/restaurant/${user.restaurantId}`)
       setNoOfOfOrders(res.data.length)
     } catch (error) {
+      dispatch(userAutoLogout())
       console.log(error)
     }
   }
@@ -41,6 +45,7 @@ const Cards = () => {
       const res = await userMethod.get(`/order/sales/${user.restaurantId}`)
       setTotalSalesFigure(res.data.length < 1 ? 0 : res.data[0]?.amount)
     } catch (error) {
+      dispatch(userAutoLogout())
       console.log(error)
     }
   }
@@ -52,6 +57,7 @@ const Cards = () => {
       const res = await userMethod.get(`/order/sales/monthly/${user.restaurantId}`)
       setMonthlySalesFigure(res.data[0]?.total)
     } catch (error) {
+      dispatch(userAutoLogout())
       console.log(error)
     }
   }
@@ -63,6 +69,7 @@ const Cards = () => {
       const res = await userMethod.get(`/order/monthly/${user.restaurantId}`)
       setMonthlyOrders(res.data)
     } catch (error) {
+      dispatch(userAutoLogout())
       console.log(error)
     }
   }
@@ -79,6 +86,7 @@ const Cards = () => {
         i > 4 && setSixMonthSalesFigure(total)
       }
     } catch (error) {
+      dispatch(userAutoLogout())
       console.log(error)
     }
   }

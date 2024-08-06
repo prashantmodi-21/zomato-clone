@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { userMethod } from '../../requestMethod'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { userAutoLogout } from '../../../admin/src/redux/userRedux'
 
 const Tables = () => {
+  const dispatch = useDispatch()
   const {user} = useSelector(state=>state.admin)
   const [recentOrders, setRecentOrders] = useState([])
   const [recentMonthSales, setRecentMonthSales] = useState([])
@@ -15,6 +17,7 @@ const Tables = () => {
       const res = await userMethod.get(`/order/restaurant/${user.restaurantId}?new=true`)
       setRecentOrders(res.data)
     } catch (error) {
+      dispatch(userAutoLogout())
       console.log(error)
     }
   }
@@ -26,6 +29,7 @@ const Tables = () => {
       const res = await userMethod.get(`/order/sales/monthly/${user.restaurantId}`)
       setRecentMonthSales(res.data)
     } catch (error) {
+      dispatch(userAutoLogout())
       console.log(error)
     }
   }
