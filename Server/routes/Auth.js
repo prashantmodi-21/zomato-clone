@@ -42,12 +42,12 @@ Router.post("/login", async(req, res)=>{
             const token = jwt.sign({id: user._id, isAdmin: user.isAdmin}, process.env.JWT_KEY, {expiresIn: "1d"})
             
             const {password, ...others} = user._doc
+            
             admin.auth().createCustomToken(user._id.toString())
             .then((customToken) => {
-
-              res.status(200).json({...others, token, customToken})
+            res.status(200).json({...others, token, customToken})
             });
-            
+
             }
         catch (error) {
             res.status(500).json(error)

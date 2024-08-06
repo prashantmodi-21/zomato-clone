@@ -39,7 +39,7 @@ const Cards = () => {
   const getTotalSales = async()=>{
     try {
       const res = await userMethod.get(`/order/sales/${user.restaurantId}`)
-      setTotalSalesFigure(res.data[0]?.amount)
+      setTotalSalesFigure(res.data.length < 1 ? 0 : res.data[0]?.amount)
     } catch (error) {
       console.log(error)
     }

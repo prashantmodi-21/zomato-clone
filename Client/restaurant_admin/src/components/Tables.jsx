@@ -73,7 +73,7 @@ const Tables = () => {
           {recentMonthSales.map((item, i)=>(
           <tr className='border-b text-sm' key={i}>
               <td className='p-1'>{item.monthYear}</td>
-              <td className='p-1'>{item.total === 0 || recentMonthSales[i + 1]?.total === 0 ? recentMonthSales[i + 1] ? (item.total - recentMonthSales[i + 1]?.total)+"%" : "0%" : (((item.total - recentMonthSales[i + 1]?.total)/item.total)*100)+"%"}</td>
+              <td className='p-1'>{item.total === 0 || recentMonthSales[i + 1]?.total === 0 ? recentMonthSales[i + 1] ? (item.total - recentMonthSales[i + 1]?.total)+"%" : "0%" : Math.round((((item.total - recentMonthSales[i + 1]?.total)/item.total)*100))+"%"}</td>
               <td className='p-1'>{item.total}</td>
           </tr>
           ))}

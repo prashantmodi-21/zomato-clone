@@ -52,7 +52,6 @@ const AddMenuItem = () => {
   useEffect(() => {
     getMenu(dispatch, user.restaurantId)
   }, [])
-  console.log(menuItems)
   return (
     <>
       <div className='p-8'>

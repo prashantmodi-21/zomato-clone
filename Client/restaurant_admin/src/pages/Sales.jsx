@@ -49,7 +49,7 @@ const Sales = () => {
                 {monthlySales.map((item, i)=>(
                 <tr className='border-b' key={item.monthYear}>
                     <td className='p-2 sm:px-4 py-2'>{item.monthYear}</td>
-                    <td className='p-2 sm:px-4 py-2'>{item.total === 0 || monthlySales[i + 1]?.total === 0 ? monthlySales[i + 1] ? (item.total - monthlySales[i + 1]?.total)+"%" : "0%" : (((item.total - recentMonthSales[i + 1]?.total)/item.total)*100)+"%"}</td>
+                    <td className='p-2 sm:px-4 py-2'>{item.total === 0 || monthlySales[i + 1]?.total === 0 ? monthlySales[i + 1] ? (item.total - monthlySales[i + 1]?.total)+"%" : "0%" : Math.round((((item.total - monthlySales[i + 1]?.total)/item.total)*100))+"%"}</td>
                     <td className='p-2 sm:px-4 py-2'>{item.total}</td>
                 </tr>
                 ))}
@@ -66,7 +66,7 @@ const Sales = () => {
                     {daysSales.map((item, i)=>(                        
                     <tr className='border-b' key={item._id}>
                         <td className='p-2 sm:px-4 py-2'>{item._id}</td>
-                        <td className='p-2 sm:px-4 py-2'>{item.totalAmount === 0 || daysSales[i - 1]?.totalAmount === 0 ? daysSales[i - 1] ? (item.totalAmount - daysSales[i -1]?.totalAmount)+"%" : "0%" : (((item.totalAmount - daysSales[i - 1]?.totalAmount)/daysSales[i - 1]?.totalAmount)*100)+"%"}</td>
+                        <td className='p-2 sm:px-4 py-2'>{item.totalAmount === 0 || daysSales[i - 1]?.totalAmount === 0 ? daysSales[i - 1] ? (item.totalAmount - daysSales[i -1]?.totalAmount)+"%" : "0%" : Math.round((((item.totalAmount - daysSales[i - 1]?.totalAmount)/daysSales[i - 1]?.totalAmount)*100))+"%"}</td>
                         <td className='p-2 sm:px-4 py-2'>{item.totalAmount}</td>
                     </tr>
                     ))}
