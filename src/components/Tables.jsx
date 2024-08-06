@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { publicMethod, userMethod } from '../requestMethod'
+import {useDispatch} from "react-redux"
+import { userAutoLogout } from '../redux/userRedux'
 
 const Tables = () => {
+  const dispatch = useDispatch()
   const [restaurant, setRestaurant] = useState([])
   const [prevRevenue, setPrevRevenue] = useState([])
   const recentRestaurants = async()=>{
@@ -10,6 +13,7 @@ const Tables = () => {
       const res = await publicMethod.get("/restaurant?new=true")
       setRestaurant(res.data)
     } catch (error) {
+      useDispatch(userAutoLogout())
       console.log(error)
     }
   }
@@ -18,6 +22,7 @@ const Tables = () => {
       const res = await userMethod.get("/order/revenue/monthly")
       setPrevRevenue(res.data)
     } catch (error) {
+      useDispatch(userAutoLogout())
       console.log(error)
     }
   }

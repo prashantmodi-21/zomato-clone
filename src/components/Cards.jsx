@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { publicMethod, userMethod } from '../requestMethod'
+import { useDispatch } from 'react-redux'
+import { userAutoLogout } from '../redux/userRedux'
 
 const Cards = () => {
+  const dispatch = useDispatch()
   const [noOfRestaurants, setNoOfRestaurants] = useState(0)
   const [noOfUsers, setNoOfUsers] = useState(0)
   const [totalSales, setTotalSales] = useState(0)
@@ -10,6 +13,7 @@ const Cards = () => {
       const res = await publicMethod.get("/restaurant")
       setNoOfRestaurants(res.data.length)
     } catch (error) {
+      dispatch(userAutoLogout())
       console.log(error)
     }
   }
@@ -18,6 +22,7 @@ const Cards = () => {
       const res = await userMethod.get("/user")
       setNoOfUsers(res.data.length)
     } catch (error) {
+      dispatch(userAutoLogout())
       console.log(error)
     }
   }
@@ -26,6 +31,7 @@ const Cards = () => {
       const res = await userMethod.get("/order/revenue/total")
       setTotalSales(res.data[0].amount)
     } catch (error) {
+      dispatch(userAutoLogout())
       console.log(error)
     }
   }
