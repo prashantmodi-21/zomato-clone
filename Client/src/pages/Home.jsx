@@ -99,7 +99,7 @@ const Home = () => {
           </div>
           <div className='space-x-4 sm:space-x-12 flex'>
             {currentUser ? currentUser?.gid ? <span className='text-sm sm:text-lg' onClick={() => handleLogout()}>Logout</span> : <span className='text-sm sm:text-lg' onClick={() => dispatch(logoutSuccess())}>Logout</span> : <div><Link to="/login"><span className='text-sm sm:text-lg mr-6'>Log In</span></Link>
-              <Link to="/register"><span className='text-sm sm:text-md'>Sign Up</span></Link></div>}
+              <Link to="/register"><span className='text-sm sm:text-lg'>Sign Up</span></Link></div>}
             <Badge badgeContent={cartItems?.length} color="primary">
               <Link to="/cart"><ShoppingCartIcon /></Link>
             </Badge>
