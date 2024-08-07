@@ -92,14 +92,14 @@ const Home = () => {
   }, [currentUser])
   return (
     <>
-      <header className='bg-[url("/img/bg.png")] h-[70vh] px-10 sm:px-20 text-white'>
+      <header className='bg-[url("/img/bg.png")] h-[70vh] px-4 sm:px-20 text-white'>
         <nav className='flex justify-between items-center h-20'>
           <div>
             <a href=""><span className='font-semibold'>Get the app</span></a>
           </div>
           <div className='space-x-4 sm:space-x-12 flex'>
             {currentUser ? currentUser?.gid ? <span className='text-sm sm:text-lg' onClick={() => handleLogout()}>Logout</span> : <span className='text-sm sm:text-lg' onClick={() => dispatch(logoutSuccess())}>Logout</span> : <div><Link to="/login"><span className='text-sm sm:text-lg mr-6'>Log In</span></Link>
-              <Link to="/register"><span className='text-m sm:text-md'>Sign Up</span></Link></div>}
+              <Link to="/register"><span className='text-sm sm:text-md'>Sign Up</span></Link></div>}
             <Badge badgeContent={cartItems?.length} color="primary">
               <Link to="/cart"><ShoppingCartIcon /></Link>
             </Badge>
@@ -124,14 +124,14 @@ const Home = () => {
           <div className='sm:hidden w-4/5'>
             <div className='text-gray-500 text-sm bg-white px-4 rounded w-full mb-2 flex items-center'>
               <i className="fa-solid fa-location-dot fa-lg px-2 pt-1" style={{ color: "#da626e" }}></i>
-              <select name="" id="" className='outline-0 w-full p-4' defaultValue={selectedCity} onChange={(e) => dispatch(selectedLocation(e.target.value))}>
+              <select name="" id="" className='outline-0 w-full p-2' defaultValue={selectedCity} onChange={(e) => dispatch(selectedLocation(e.target.value))}>
                 <option value="">Select Your City</option>
               {cities.map((item) => (
                 <option key={item.city} value={item.city}>{`${item.city.substring(0, 1).toUpperCase()}${item.city.slice(1)}`}</option>
               ))}
               </select>
             </div>
-            <div className='text-gray-500 text-sm bg-white p-4 rounded w-full flex items-center'>
+            <div className='text-gray-500 text-sm bg-white p-2 rounded w-full flex items-center'>
               <i className="fa-solid fa-magnifying-glass fa-lg pt-1 pr-4"></i>
               <input type="search" name="" id="" className='outline-0 w-full' placeholder='Search for restaurants, cuisines or a dish' />
             </div>
@@ -139,7 +139,7 @@ const Home = () => {
         </div>
       </header>
 
-      <section className='px-10 md:px-20 py-10 flex flex-col sm:flex-row'>
+      <section className='px-4 md:px-20 py-10 flex flex-col sm:flex-row'>
         <Link to="/restaurants/order" className='w-full hover:scale-105 transition-all p-4'>
           <div className='bg-[url("/img/order-online.avif")] bg-center bg-cover h-40 rounded-t-lg'></div>
           <div className='bg-white p-4 border border-gray-300 rounded-b-lg'>
@@ -155,10 +155,10 @@ const Home = () => {
 
           </div></Link>
       </section>
-      <section className='px-10 lg:px-20'>
+      <section className='px-6 lg:px-20'>
         <Collections/>
       </section>
-      <section id='locality' className='px-10 md:px-20 py-10 text-gray-700'>
+      <section id='locality' className='px-6 md:px-20 py-10 text-gray-700'>
         {selectedCity ? <div>
         <h2 className='text-4xl pb-8'>Popular localities in and around {selectedCity ? selectedCity.slice(0, 1).toUpperCase() + selectedCity.substring(1) : "India"}</h2>
         <div className='flex flex-wrap'>

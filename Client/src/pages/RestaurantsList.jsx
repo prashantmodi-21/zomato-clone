@@ -89,12 +89,12 @@ const RestaurantsList = () => {
   }, [type])
   return (
     <>
-      <div className='px-10 lg:px-20 mb-10'>
+      <div className='px-6 lg:px-20 mb-10'>
         <Navbar />
         <section id='restaurants'>
           <div className='lg:hidden flex items-center text-gray-500 text-sm bg-white px-4 rounded w-full border border-gray-200'>
             <i className="fa-solid fa-location-dot fa-lg px-2 pt-1" style={{ color: "#da626e" }}></i>
-            <select name="" id="" className='outline-0 p-4'>
+            <select name="" id="" className='outline-0 p-2 sm:p-4'>
               <option value="">Select Your City</option>
               {cities.map((item)=>(
                 <option key={item.city} value="">{item.city.substring(0,1).toUpperCase()+item.city.slice(1)}</option>
@@ -106,13 +106,13 @@ const RestaurantsList = () => {
           </div>
           {type === "dining" && <Collections/>}
           <div className='flex space-x-4 my-4 font-thin'>
-            <select name="cuisines" id="cuisines" className='outline-none border rounded-md p-2 text-gray-400' onChange={(e)=> setFilterCategory(e.target.value)}>
+            <select name="cuisines" id="cuisines" className='outline-none border rounded-md py-2 text-gray-400' onChange={(e)=> setFilterCategory(e.target.value)}>
               <option value="">Cuisines</option>
               {cuisines.map((item)=>(
               <option key={item} value={item}>{item}</option>
               ))}
             </select>
-            <select name="sort" id="sort by" className='outline-none border rounded-md p-2 text-gray-400' onClick={(e)=> getSortedRestaurants(e.target.value)}>
+            <select name="sort" id="sort by" className='outline-none border rounded-md py-2 text-gray-400' onClick={(e)=> getSortedRestaurants(e.target.value)}>
               <option value="">Sort By</option>
               {sort.map((item)=>(
               <option key={item} value={item}>{item.substring(0, 1).toUpperCase()+item.slice(1)}</option>

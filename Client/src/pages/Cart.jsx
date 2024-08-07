@@ -20,7 +20,7 @@ const Cart = () => {
   }
   return (
     <>
-    <div className='px-10 sm:px-20'>
+    <div className='px-6 sm:px-20'>
       <Navbar/>
       <section id='cart' className='flex items-center mb-8'>
       <div className='w-full lg:w-4/5'>

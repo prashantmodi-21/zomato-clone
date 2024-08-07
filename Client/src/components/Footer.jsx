@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className='px-10 md:px-20 py-10 bg-[#F8F8F8]'>
+    <footer className='px-6 md:px-20 py-10 bg-[#F8F8F8]'>
       <div className='flex flex-col sm:flex-row justify-between items-center my-4'>
         <img src="/img/logo-black.png" alt="zomato-logo" className='ixsoFB mb-4 sm:mb-0'/>
         <div className='flex space-x-4'>

@@ -20,7 +20,7 @@ const RestaurantMenu = () => {
   }, [])
   return (
     <>
-    <div className='px-20 mb-10'>
+    <div className='px-6 sm:px-20 mb-10'>
       <Navbar />
       <section id='restaurant-menu'>
       <div className='banner mb-2'>

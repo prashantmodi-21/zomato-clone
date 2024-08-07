@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Restaurants = ({item: {_id, image, name, cuisines, rating}}) => {
-  console.log((Math.ceil(rating)+2)*100)
   return (
           <Link to={`/restaurant/${_id}`}><div className='hover:shadow-md rounded-lg m-2 p-2'>
             <div className='card'>
